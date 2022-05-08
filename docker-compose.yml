@@ -16,6 +16,8 @@ services:
 
     user: "1000:1000"
 
+    privileged: true
+
     environment:
       DISPLAY: ":0"
       UE4_ROOT: "${DOCKER_HOME}/UnrealEngine"
