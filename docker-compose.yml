@@ -1,0 +1,32 @@
+version: '3.1'
+
+services:
+  carla:
+    build: .
+    command: bash -c "~/setup.sh"
+    stdin_open: true
+    tty: true
+    # edit this to map carla and unreal engine
+    volumes:
+      - "${UE4_PATH}:${DOCKER_HOME}/UnrealEngine"
+      - "${CARLA_PATH}:${DOCKER_HOME}/carla"
+      - '/tmp/.X11-unix/:/tmp/.X11-unix/'
+      - "/usr/bin/prime-run:/usr/bin/prime-run"
+      - "~/dotfiles:${DOCKER_HOME}/dotfiles"
+
+    user: "1000:1000"
+
+    environment:
+      DISPLAY: ":0"
+      UE4_ROOT: "${DOCKER_HOME}/UnrealEngine"
+      XAUTH_TOKEN: "${XAUTH_TOKEN}"
+
+    network_mode: host
+
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
