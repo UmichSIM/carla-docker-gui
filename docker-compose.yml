@@ -21,7 +21,7 @@ services:
     environment:
       DISPLAY: ":0"
       UE4_ROOT: "${DOCKER_HOME}/UnrealEngine"
-      XAUTH_TOKEN: "${XAUTH_TOKEN}"
+      XAUTH_TOKENS: "${XAUTH_TOKENS}"
 
     network_mode: host
 
