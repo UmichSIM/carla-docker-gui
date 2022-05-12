@@ -1,14 +1,5 @@
 #!/usr/bin/env bash
 
-# add xauth
-IFS_OLD=$IFS
-IFS=$'\n' read -ra token_array <<< "$XAUTH_TOKENS"
-for token in "${token_array[@]}";
-do
-  xauth add $token
-done
-IFS=$IFS_OLD
-
 # Unreal Engine build
 if ! [[ -f $UE4_ROOT/made ]];then
     cd $UE4_ROOT

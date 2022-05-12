@@ -11,6 +11,7 @@ services:
       - "${UE4_PATH}:${DOCKER_HOME}/UnrealEngine"
       - "${CARLA_PATH}:${DOCKER_HOME}/carla"
       - '/tmp/.X11-unix/:/tmp/.X11-unix/'
+      - '~/.Xauthority/:${DOCKER_HOME}/.Xauthority'
       - "/usr/bin/prime-run:/usr/bin/prime-run"
       - "~/dotfiles:${DOCKER_HOME}/dotfiles"
 
@@ -21,7 +22,6 @@ services:
     environment:
       DISPLAY: ":0"
       UE4_ROOT: "${DOCKER_HOME}/UnrealEngine"
-      XAUTH_TOKENS: "${XAUTH_TOKENS}"
 
     network_mode: host
 
