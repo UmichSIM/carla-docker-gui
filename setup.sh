@@ -16,9 +16,10 @@ if ! [[ -f ./made ]]; then
   touch made
 fi
 
+bash
 # launch program
-if [[ -f /usr/bin/prime-run ]];then
-    prime-run make launch
-else
-    make launch
-fi
+# if [[ -f /usr/bin/prime-run ]];then
+#     prime-run make launch
+# else
+#     make launch
+# fi
