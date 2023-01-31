@@ -52,7 +52,7 @@ CARLA_PATH=./carla
 
 Run the following command to start compilation and launch the UE4 editor. The compilation will take a long time (several hours). After first compilation, the program should start quite fast (~1 minute).
 ```bash
-docker-compose run carla
+docker-compose up
 ```
 
 
